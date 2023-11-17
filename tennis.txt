@@ -1,0 +1,8 @@
+SELECT
+  EXTRACT(MONTH FROM date) AS month,
+  EXTRACT(YEAR FROM date) AS year,
+  COUNT(*) AS liczba_meczow
+FROM tennis
+WHERE date >= '2013-01-01' AND date < '2023-01-01'
+GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date)
+ORDER BY EXTRACT(YEAR FROM date), EXTRACT(MONTH FROM date);
